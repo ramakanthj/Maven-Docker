@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage ("SCM Checkin-1") {
             steps {
-              git credentialsId: 'aa51b95e-4195-4d87-9f93-1ba34337b4c0' branch: 'master', url: 'https://github.com/ramakanthj/SampleMaven'
+              git branch: 'master', url: 'https://github.com/ramakanthj/SampleMaven'
             }
         }
         stage ("maven build") {
@@ -25,7 +25,7 @@ pipeline {
 		}
 		stage ("Run the container") {
 		steps {
-		sh "docker run -d -p 90:8080 --name cont10 ramkanthj/tomcat-b15"
+		sh "docker run -d -p 90:8080 --name cont11 ramkanthj/tomcat-b15"
 		}
 		}
 		stage ("Push to Docker HUB") {
@@ -40,7 +40,7 @@ pipeline {
 		message 'Can we Delete the Docker image and Container'
 		}
 		steps {
-		sh "docker rm cont10 -f"
+		sh "docker rm cont11 -f"
 		sh "docker image rmi ramkanthj/tomcat-b15 -f"
 		}
 		}
