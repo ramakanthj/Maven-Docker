@@ -1,9 +1,9 @@
 pipeline {
-    agent { label 'JAVA' }
+    agent { label 'master' }
     stages { 
         stage ("SCM Checkin-1") {
             steps {
-              git credentialsId: 'aa51b95e-4195-4d87-9f93-1ba34337b4c0', url: 'https://github.com/ramakanthj/SampleMaven'
+              git 'https://github.com/ramakanthj/SampleMaven'
             }
         }
         stage ("maven build") {
