@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Java' }
+    agent { label 'JAVA' }
     stages { 
         stage ("SCM Checkin-1") {
             steps {
@@ -8,8 +8,8 @@ pipeline {
         }
         stage ("maven build") {
             tools {
-                maven 'maven-3.6.2'
-                jdk 'JDK1.8'
+                maven 'Maven 3.6.2'
+                jdk 'JDK 1.8'
             }
             steps {
                 sh "mvn package"
@@ -25,7 +25,7 @@ pipeline {
 		}
 		stage ("Run the container") {
 		steps {
-		sh "docker run -d -p 90:8080 --name cont01 ramkanthj/tomcat-b15"
+		sh "docker run -d -p 90:8080 --name cont10 ramkanthj/tomcat-b15"
 		}
 		}
 		stage ("Push to Docker HUB") {
