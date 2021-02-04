@@ -3,7 +3,7 @@ agent { label 'master' }
 stages {
 stage ("SCM Chkout-1"){
 steps {
-git credentialsId: 'github', url: 'https://github.com/ramakanthj/javatest'
+git 'https://github.com/ramakanthj/Maven_Docker'
 }
 }
 stage ("Java execute"){
