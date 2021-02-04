@@ -40,7 +40,7 @@ pipeline {
 		message 'Can we Delete the Docker image and Container'
 		}
 		steps {
-		sh "docker rm sont01 -f"
+		sh "docker rm cont10 -f"
 		sh "docker image rmi ramkanthj/tomcat-b15 -f"
 		}
 		}
