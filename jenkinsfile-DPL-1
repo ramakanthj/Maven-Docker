@@ -21,7 +21,7 @@ pipeline {
 	
 		stage ("Build the Docker image") {
 		steps {
-		sh "docker build . -t ramkanthj/tomcat-b15"
+		sh "docker build . -t ramkanthj/tomcat-b1"
 		}
 		}
 		stage ("Cleanup the previous Docker Image and container") {
