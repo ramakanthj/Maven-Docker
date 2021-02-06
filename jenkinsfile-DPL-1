@@ -18,21 +18,10 @@ pipeline {
                  message 'Mvn Package is Successfull, I can Proceed'
             }
         }
+	
 		stage ("Build the Docker image") {
 		steps {
 		sh "docker build . -t ramkanthj/tomcat-b15"
-		}
-		}
-		stage ("Run the container") {
-		steps {
-		sh "docker run -d -p 90:8080 --name cont12 ramkanthj/tomcat-b15"
-		}
-		}
-		stage ("Push to Docker HUB") {
-		steps {
-		withDockerRegistry(credentialsId: 'DockerHub', url: '') {
-		sh "docker push ramkanthj/tomcat-b15:latest"
-		}
 		}
 		}
 		stage ("Cleanup the previous Docker Image and container") {
@@ -44,6 +33,19 @@ pipeline {
 		sh "docker image rmi ramkanthj/tomcat-b15 -f"
 		}
 		}
+		stage ("Run the container") {
+		steps {
+		sh "docker run -d -p 90:8080 --name cont11 ramkanthj/tomcat-b15"
+		}
+		}
+		stage ("Push to Docker HUB") {
+		steps {
+		withDockerRegistry(credentialsId: 'DockerHub', url: '') {
+		sh "docker push ramkanthj/tomcat-b15:latest"
+		}
+		}
+		}
+		
 		}
 		}
 		
