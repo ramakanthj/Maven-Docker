@@ -25,7 +25,7 @@ pipeline {
 		}
 		stage ("Run the container") {
 		steps {
-		sh "docker run -d -p 90:8080 --name cont11 ramkanthj/tomcat-b15"
+		sh "docker run -d -p 90:8080 --name cont12 ramkanthj/tomcat-b15"
 		}
 		}
 		stage ("Push to Docker HUB") {
