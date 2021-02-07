@@ -14,14 +14,14 @@ pipeline {
             steps {
                 sh "mvn package"
             }
-     input {
-                 message 'Mvn Package is Successfull, I can Proceed'
-            }
+    // input {
+       //          message 'Mvn Package is Successfull, I can Proceed'
+       //     }
         }
 	stage ("Cleanup the previous Docker Image and container") {
-		input {
-		message 'Can we Delete the Docker image and Container'
-		}
+	//	input {
+	//	message 'Can we Delete the Docker image and Container'
+	//	}
 		steps {
 		sh "docker rm cont10 -f"
 		sh "docker image rmi ramkanthj/tomcat-b15 -f"
